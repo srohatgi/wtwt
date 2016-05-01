@@ -49,8 +49,8 @@ type Feel struct {
 }
 
 // GetConditions finds current weather conditions
-func GetConditions(ip uint32) Feel {
+func GetConditions(ip uint32) (Feel, error) {
 	log.Printf("passed in ip: %d", ip)
 	lon, lat := GetLongLat(100)
-	return Feel{WINDY, COLD, WET, lon, lat}
+	return Feel{WINDY, COLD, WET, lon, lat}, nil
 }
